@@ -45,7 +45,13 @@
             </TabItem>
 
             <TabItem Header="Conversor Temperaturas">
-                <TextBlock Text="Em breve..." Margin="20" FontSize="16" />
+                <StackPanel Margin="20">
+                    <TextBlock Text="Celsius (°C):" Margin="0,5,0,2" FontWeight="SemiBold"/>
+                    <TextBox x:Name="txtCelsius" Padding="5" TextChanged="txtCelsius_TextChanged" />
+
+                    <TextBlock Text="Fahrenheit (°F):" Margin="0,15,0,2" FontWeight="SemiBold"/>
+                    <TextBox x:Name="txtFahrenheit" Padding="5" TextChanged="txtFahrenheit_TextChanged" />
+                </StackPanel>
             </TabItem>
         </TabControl>
     </Grid>
