@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.VisualBasic.FileIO;
 
 namespace WPF_utils;
 
@@ -78,15 +79,10 @@ public partial class MainWindow : Window
                 return;
             }
 
-            // Cria a pasta de destino caso ela não exista
-            if (!Directory.Exists(destino))
-            {
-                Directory.CreateDirectory(destino);
-            }
-
             // Busca todos os arquivos com a extensão fornecida
             string[] arquivos = Directory.GetFiles(origem, "*" + extensao);
             int contador = 0;
+            int contadorDuplicatas = 0;
 
             foreach (var arquivo in arquivos)
             {
@@ -100,14 +96,19 @@ public partial class MainWindow : Window
                     File.Move(arquivo, caminhoDestino);
                     contador++;
                 }
+                else
+                {
+                    FileSystem.DeleteFile(arquivo,UIOption.OnlyErrorDialogs,RecycleOption.SendToRecycleBin);
+                    contadorDuplicatas++;
+                }
             }
-            if (contador <= 0)
+            if (contador <= 0 && contadorDuplicatas <= 0)
             {
                 txtStatus.Text = "Nenhum arquivo encontrado com a extensão especificada.";
                 txtStatus.Foreground = Brushes.Orange;
                 return;
             }
-            txtStatus.Text = $"{contador} arquivo(s) movido(s) com sucesso.";
+            txtStatus.Text = $"{contador} arquivo(s) movido(s) e {contadorDuplicatas} arquivo(s) duplicado(s) movidos para a lixeira.";
             txtStatus.Foreground = Brushes.Green;
         }
         catch (Exception ex)
