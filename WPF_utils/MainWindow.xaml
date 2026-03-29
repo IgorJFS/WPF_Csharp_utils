@@ -1,0 +1,55 @@
+﻿<Window x:Class="WPF_utils.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_utils"
+        mc:Ignorable="d"
+        Title="Utilitários" Height="450" Width="600"
+        Background="#F4F4F9">
+    <Grid>
+        <TabControl Background="Transparent" BorderThickness="0" Margin="10">
+            <!-- Primeira Aba: Organizador de Arquivos -->
+            <TabItem Header="Organizador de Arquivos">
+                <StackPanel Margin="20">
+                    <TextBlock Text="Pasta de Origem:" Margin="0,5,0,2" FontWeight="SemiBold"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="txtOrigem" Padding="5" />
+                        <Button Grid.Column="1" Content="..." Width="35" Margin="5,0,0,0" Click="ProcurarOrigem_Click" ToolTip="Procurar pasta" />
+                    </Grid>
+
+                    <TextBlock Text="Extensão do Arquivo (ex: .txt, .pdf):" Margin="0,15,0,2" FontWeight="SemiBold"/>
+                    <TextBox x:Name="txtExtensao" Padding="5" />
+
+                    <TextBlock Text="Pasta de Destino:" Margin="0,15,0,2" FontWeight="SemiBold"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="txtDestino" Padding="5" />
+                        <Button Grid.Column="1" Content="..." Width="35" Margin="5,0,0,0" Click="ProcurarDestino_Click" ToolTip="Procurar pasta" />
+                    </Grid>
+
+                    <Button Content="Mover Arquivos" Click="MoverArquivos_Click" 
+                            Margin="0,20,0,10" Padding="8" Background="#007ACC" 
+                            Foreground="White" BorderThickness="0" Cursor="Hand" />
+
+                    <TextBlock x:Name="txtStatus" TextWrapping="Wrap" FontWeight="SemiBold" />
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Conversor Temperaturas">
+                <TextBlock Text="Em breve..." Margin="20" FontSize="16" />
+            </TabItem>
+
+            <TabItem Header="Calculadora">
+                <TextBlock Text="Em breve..." Margin="20" FontSize="16" />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
