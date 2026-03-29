@@ -1,19 +1,96 @@
-# Build outputs
+# =========================
+# Build results
+# =========================
 bin/
 obj/
 
+# =========================
 # Visual Studio
+# =========================
 .vs/
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
 
-# NuGet
-*.nupkg
-packages/
+# =========================
+# Rider / JetBrains
+# =========================
+.idea/
+*.sln.iml
 
-# Logs e temporários
+# =========================
+# VS Code
+# =========================
+.vscode/
+
+# =========================
+# Logs
+# =========================
 *.log
-*.tmp
 
-# Publicação
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# NuGet
+# =========================
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# (IMPORTANTE)
+# NÃO ignore isso se usar PackageReference (padrão moderno)
+# Apenas para projetos antigos com packages.config
+# packages/
+
+# =========================
+# Publish output
+# =========================
 publish/
+*.publishsettings
+
+# =========================
+# Test results
+# =========================
+TestResults/
+
+# =========================
+# Coverage / Reports
+# =========================
+coverage/
+*.coverage
+*.coveragexml
+
+# =========================
+# Dotnet tools / local config
+# =========================
+.dotnet/
+
+# =========================
+# Resharper
+# =========================
+_ReSharper*/
+*.DotSettings.user
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.temp
+
+# =========================
+# SQLite / local DBs (opcional)
+# =========================
+*.db
+*.sqlite
+
+# =========================
+# Secrets / configs sensíveis
+# =========================
+appsettings.Development.json
+secrets.json
